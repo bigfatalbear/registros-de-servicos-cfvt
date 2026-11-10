@@ -19,7 +19,7 @@ PWA para gerenciamento de serviços de CFTV (fechamento de circuito de televisã
 
 ```
 registro-servicos-cftv/
-├── frontend/                 # PWA estática -> GitHub Pages
+├── docs/                     # PWA estática -> GitHub Pages (source path /docs)
 │   ├── index.html
 │   ├── manifest.json
 │   ├── service-worker.js

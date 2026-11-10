@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "cfvt",
-      "public": "frontend",
+      "public": "docs",
       "ignore": [
         "firebase.json",
         "**/.*",
