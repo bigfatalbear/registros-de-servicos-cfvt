@@ -26,24 +26,90 @@
       <section id="dashboard" class="view active">
         <h2>Dashboard</h2>
         <p>Selecione uma opção no menu para começar.</p>
+        <div id="auth-area"></div>
       </section>
       <section id="orcamentos" class="view hidden">
         <h2>Orçamentos</h2>
+        <form id="form-orcamento">
+          <input type="text" name="cliente" placeholder="Cliente" required>
+          <input type="number" name="valor" placeholder="Valor (R$)" step="0.01" required>
+          <button type="submit">Criar Orçamento</button>
+        </form>
+        <ul id="lista-orcamentos"></ul>
       </section>
       <section id="os" class="view hidden">
         <h2>Ordens de Serviço</h2>
+        <form id="form-os">
+          <input type="text" name="cliente" placeholder="Cliente" required>
+          <select name="status">
+            <option value="agendado">Agendado</option>
+            <option value="em_andamento">Em Andamento</option>
+            <option value="concluido">Concluído</option>
+          </select>
+          <button type="submit">Abrir OS</button>
+        </form>
+        <ul id="lista-os"></ul>
       </section>
       <section id="clientes" class="view hidden">
         <h2>Clientes</h2>
+        <form id="form-cliente">
+          <input type="text" name="nome" placeholder="Nome" required>
+          <input type="text" name="telefone" placeholder="Telefone">
+          <input type="text" name="endereco" placeholder="Endereço">
+          <button type="submit">Cadastrar Cliente</button>
+        </form>
+        <ul id="lista-clientes"></ul>
       </section>
       <section id="estoque" class="view hidden">
         <h2>Estoque</h2>
+        <form id="form-peca">
+          <input type="text" name="nome" placeholder="Peça" required>
+          <input type="number" name="quantidade" placeholder="Quantidade" required>
+          <input type="text" name="numeroSerie" placeholder="Número de série">
+          <button type="submit">Adicionar Peça</button>
+        </form>
+        <ul id="lista-pecas"></ul>
       </section>
       <section id="financeiro" class="view hidden">
         <h2>Financeiro</h2>
+        <form id="form-pagamento">
+          <input type="text" name="descricao" placeholder="Descrição" required>
+          <input type="number" name="valor" placeholder="Valor (R$)" step="0.01" required>
+          <select name="status">
+            <option value="pendente">Pendente</option>
+            <option value="pago">Pago</option>
+            <option value="devendo">Devendo</option>
+          </select>
+          <button type="submit">Registrar Pagamento</button>
+        </form>
+        <ul id="lista-pagamentos"></ul>
       </section>
     </main>
   </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+    import { getFirestore, collection, addDoc, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+    // Configuração pública do Firebase (apiKey pode ser exposta no frontend)
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "registro-de-servicos-cf-2fe814.firebaseapp.com",
+      projectId: "registro-de-servicos-cf-2fe814",
+      storageBucket: "registro-de-servicos-cf-2fe814.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Exportar para uso global
+    window.__firebase = { auth, db, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, collection, addDoc, getDocs, query, where };
+  </script>
   <script src="/js/app.js"></script>
 </body>
 </html>
