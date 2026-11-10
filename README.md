@@ -53,8 +53,9 @@ registro-servicos-cftv/
 
 ## Como iniciar
 
-1. Substitua `<SEU_USUARIO>` nos arquivos de configuração pelo seu usuário do GitHub.
-2. Crie o repositório `registros-de-servicos-cfvt` no GitHub.
-3. Configure o Firebase/Google Cloud com o projeto `registro-de-servicos-cf-2fe814` (confirme disponibilidade antes de provisionar).
-4. Habilite as APIs: Firestore, Cloud Storage, Cloud Functions, Firebase Auth.
-5. Faça deploy do frontend no GitHub Pages e das funções no Cloud Functions.
+1. Repositório criado: `https://github.com/bigfatalbear/registros-de-servicos-cfvt`
+2. GitHub Pages publicado: `https://bigfatalbear.github.io/registros-de-servicos-cfvt/`
+3. Provisione o projeto Google Cloud `registro-de-servicos-cf-2fe814` (confirme disponibilidade) e habilite Firebase Auth, Firestore, Storage e Cloud Functions.
+4. Configure as variáveis de ambiente/Secret Manager nas funções (nunca commitá-las).
+5. Substitua `YOUR_API_KEY`, `YOUR_SENDER_ID` e `YOUR_APP_ID` no `docs/index.html` pelos valores do seu projeto Firebase.
+6. Faça deploy das Cloud Functions: `cd backend/functions && npm install && firebase deploy --only functions`
