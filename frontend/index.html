@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f172a">
+  <title>REGISTRO DE SERVIÇOS CFTV</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>REGISTRO DE SERVIÇOS CFTV</h1>
+      <div id="auth-status">Não autenticado</div>
+    </header>
+    <nav>
+      <button data-view="dashboard">Dashboard</button>
+      <button data-view="orcamentos">Orçamentos</button>
+      <button data-view="os">Ordens de Serviço</button>
+      <button data-view="clientes">Clientes</button>
+      <button data-view="estoque">Estoque</button>
+      <button data-view="financeiro">Financeiro</button>
+    </nav>
+    <main>
+      <section id="dashboard" class="view active">
+        <h2>Dashboard</h2>
+        <p>Selecione uma opção no menu para começar.</p>
+      </section>
+      <section id="orcamentos" class="view hidden">
+        <h2>Orçamentos</h2>
+      </section>
+      <section id="os" class="view hidden">
+        <h2>Ordens de Serviço</h2>
+      </section>
+      <section id="clientes" class="view hidden">
+        <h2>Clientes</h2>
+      </section>
+      <section id="estoque" class="view hidden">
+        <h2>Estoque</h2>
+      </section>
+      <section id="financeiro" class="view hidden">
+        <h2>Financeiro</h2>
+      </section>
+    </main>
+  </div>
+  <script src="/js/app.js"></script>
+</body>
+</html>
